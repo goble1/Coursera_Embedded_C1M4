@@ -10,24 +10,31 @@
 #*****************************************************************************
 
 #------------------------------------------------------------------------------
-# Simple makefile for the cortex-M0+ build system
+# Simple makefile for two target platforms and their own
+# specific compilers. These two platforms are the HOST and
+# the MSP432.
+# The host embedded system will use the native compiler, gcc.
+# The target embedded system will use the cross compiler,
+# arm-none-eabi-gcc.
+#
+#* @author Krystian Jagoda
+#* @date 15 September 2017
 #
 # Use: make [TARGET] [PLATFORM-OVERRIDES]
 #
 # Build Targets:
-#      <FILE>.i - Generates the <FILE>.i preprocessed output file
-#      <FILE>.asm - Generates <FILE>.asm assembly output file
-#      <FILE>.o - Builds <FILE>.o object file but does not link
-#      build - Compiles all object files and link into a final executable
-#      compile-all - Compiles all object files, but DOES NOT link
-#      clean - remove all compiled objects, preprocessed outputs, assembly
-#              outputs, executable files and build output files
+#      <FILE>.i - Generate <FILE>.i preprocessed output
+#      <FILE>.asm - Generate <FILE>.asm assembly output
+#      <FILE>.o - Builds <FILE>.o object file
+#      compile-all - Compile all object files, but DO NOT link
+#      build - Builds and links all source files
+#      clean - Removes all generated files
 #
-# Platform Overrides:
-#      PLATFORM - Supports two target platforms (HOST and MSP432)
-#                 The host embedded system uses gcc
-#                 The target embedded system uses arm-none-eabi-gcc
+#Platform Overrides:
+#       PLATFORM=HOST - Compile for HOST using gcc
+#       PLATFORM=MSP432 - Compile for MSP432 using arm-none-eabi-gcc
 #------------------------------------------------------------------------------
+
 include sources.mk
 
 # Architectures Specific Flags
@@ -38,8 +45,8 @@ SPECS = nosys.specs
 CFLAGS = -Wall -Werror -g -O0 -std=c99
 
 # Compiler Flags and Defines
-TARGET = c1m3
-CPPFLAGS = -D$(PLATFORM) -MMD -MP
+TARGET = c1m4
+CPPFLAGS = -D$(PLATFORM) -D$(FUNCTION) -MMD -MP
 ifeq ($(PLATFORM), HOST)
     CC = gcc
     LD = ld
@@ -84,3 +91,4 @@ $(TARGET).asm: build
 .PHONY: clean
 clean:
 	rm -f *.o *.out *.map *.asm *.i *.d
+	rm -f src/*.o *.out *.map *.asm *.i *.d

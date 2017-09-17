@@ -10,9 +10,9 @@
  *****************************************************************************/
 /**
  * @file stats.h
- * @brief Week 1 Application Assignment
+ * @brief Some stats
  *
- * Coursera - Embedded Software - Week 1 Application Assignment
+ * Coursera - Embedded Software - Finall Assignment
  *
  * @author Krystian Jagoda
  * @date 19/08/2017

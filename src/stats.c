@@ -12,7 +12,7 @@
  * @file stats.c
  * @brief Week 1 Application Assignment
  *
- * Coursera - Embedded Software - Week 1 Application Assignment
+ * Coursera - Embedded Software - Finall Assignment
  *
  * @author Krystian Jagoda
  * @date 19/08/2017
@@ -26,30 +26,6 @@
 
 /* Size of the Data Set */
 #define SIZE (40)
-
-
-void main() {
-
-  unsigned char test[SIZE] = { 34, 201, 190, 154,   8, 194,   2,   6,
-                              114, 88,   45,  76, 123,  87,  25,  23,
-                              200, 122, 150, 90,   92,  87, 177, 244,
-                              201,   6,  12,  60,   8,   2,   5,  67,
-                                7,  87, 250, 230,  99,   3, 100,  90};
-
-  /* Other Variable Declarations Go Here */
-
-  /* Statistics and Printing Functions Go Here */
-  printf("\n Statistics:\n");
-  print_statistics(test, SIZE);
-
-  printf("\n Input Array:\n");
-  print_array(test, SIZE);
-
-  printf("\n Sorted Array:\n");
-  sort_array(test, SIZE);
-  print_array(test, SIZE);
-
-}
 
 /* Add other Implementation File Code Here */
 
@@ -73,17 +49,19 @@ void print_statistics(unsigned char* targetArray, unsigned int length){
 }
 
 void print_array(unsigned char* targetArray, unsigned int length){
-  printf("\n"); // Empty line before the array
+  #if defined (DEBUG_PRINT)
+    printf("\n"); // Empty line before the array
 
-  for(unsigned int element = 0; element < length; element++){
-    if(targetArray[element] < 10) printf("  ");
-    else if(targetArray[element] >=10 && targetArray[element] < 100) printf(" ");
+    for(unsigned int element = 0; element < length; element++){
+      if(targetArray[element] < 10) printf("  ");
+      else if(targetArray[element] >=10 && targetArray[element] < 100) printf(" ");
 
-    printf("%d  ", targetArray[element]);
+      printf("%d  ", targetArray[element]);
 
-    if(element != 0 && element%10 == 9 || element+1 == length) printf("\n");
-  }
-  printf("\n"); // Empty line after the array
+      if(element != 0 && element%10 == 9 || element+1 == length) printf("\n");
+    }
+    printf("\n"); // Empty line after the array
+  #endif
 }
 
 unsigned char find_median(unsigned char* targetArray, unsigned int length){
