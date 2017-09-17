@@ -33,7 +33,7 @@
 ***********************************************************/
 uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
   for (unsigned int index = 0; index < length; index++) {
-//    set_value(dst, index, src[index]){
+    dst[index] = src[index];
   }
   return dst;
 }
@@ -46,7 +46,7 @@ uint8_t * my_memmove(uint8_t * src, uint8_t * dst, size_t length){
 
 uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length){
   for (unsigned int index = 0; index < length; index++) {
-//    set_value(dst, index, src[index]){
+    dst[index] = src[index];
   }
   return dst;
 }
@@ -59,7 +59,7 @@ uint8_t * my_memcopy(uint8_t * src, uint8_t * dst, size_t length){
 
 uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value){
   for(unsigned int index = 0; index < length; index++) {
-//    set_value(src, index, value);
+    src[index] = value;
   }
   return src;
 }
@@ -71,7 +71,7 @@ uint8_t * my_memset(uint8_t * src, size_t length, uint8_t value){
 
 uint8_t * my_memzero(uint8_t * src, size_t length){
   for(unsigned int index = 0; index < length; index++) {
-//    set_value(src, index, 0);
+    src[index] = 0;
   }
   return src;
 }
@@ -82,14 +82,14 @@ uint8_t * my_memzero(uint8_t * src, size_t length){
 //    You should NOT reuse the clear_all() function
 
 uint8_t * my_reverse(uint8_t * src, size_t length){
-//  uint8_t tempData[length];
-//  size_t reverseCounter = length;
+  uint8_t tempData[length];
+  size_t reverseCounter = length-1;
 
   for(unsigned int index = 0; index < length; index++) {
-//    tempData[index] = src[index];
+    tempData[index] = src[index];
   }
   for(unsigned int index = 0; index < length; index++) {
-//    set_value(src, index, tempData[reverseCounter - index]);
+    src[index] = tempData[reverseCounter - index];
   }
   return src;
 }
@@ -99,7 +99,7 @@ uint8_t * my_reverse(uint8_t * src, size_t length){
 //    Should return a pointer to the source.
 
 int32_t * reserve_words(size_t length){
-  return malloc(length);
+  return malloc(SIZE_OF_WORD*length);
 }
 
 //    This should take number of words to allocate in dynamic memory
@@ -107,7 +107,10 @@ int32_t * reserve_words(size_t length){
 //    Should return a pointer to memory if successful, or a Null Pointer if not successful
 
 void free_words(uint32_t * src){
-//  free(src);
+  if(src != NULL) {
+    free(src);
+    src = NULL;
+  }
 }
 
 //    Should free a dynamic memory allocation by providing the pointer src to the function

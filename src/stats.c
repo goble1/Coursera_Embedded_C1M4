@@ -23,6 +23,7 @@
 
 #include <stdio.h>
 #include "stats.h"
+#include "platform.h"
 
 /* Size of the Data Set */
 #define SIZE (40)
@@ -30,37 +31,33 @@
 /* Add other Implementation File Code Here */
 
 void print_statistics(unsigned char* targetArray, unsigned int length){
+  #ifdef VERBOSE
+    unsigned char minimumValue = 0;
+    unsigned char maximumValue = 0;
+    unsigned char meanValue = 0;
+    unsigned char medianValue = 0;
 
-  unsigned char minimumValue = 0;
-  unsigned char maximumValue = 0;
-  unsigned char meanValue = 0;
-  unsigned char medianValue = 0;
+    minimumValue = find_minimum(targetArray, length);
+    maximumValue = find_maximum(targetArray, length);
+    meanValue = find_mean(targetArray, length);
+    medianValue = find_median(targetArray, length);
 
-  minimumValue = find_minimum(targetArray, length);
-  maximumValue = find_maximum(targetArray, length);
-  meanValue = find_mean(targetArray, length);
-  medianValue = find_median(targetArray, length);
-
-  printf("\n"); // Empty line before the statistics
-  printf("Minimum Value: %d\n", minimumValue);
-  printf("Maximum Value: %d\n", maximumValue);
-  printf("Mean Value:    %d\n", meanValue);
-  printf("Median Value:  %d\n", medianValue);
+    PRINTF("\n"); // Empty line before the statistics
+    PRINTF("Minimum Value: %d\n", minimumValue);
+    PRINTF("Maximum Value: %d\n", maximumValue);
+    PRINTF("Mean Value:    %d\n", meanValue);
+    PRINTF("Median Value:  %d\n", medianValue);
+  #endif
 }
 
 void print_array(unsigned char* targetArray, unsigned int length){
-  #if defined (DEBUG_PRINT)
-    printf("\n"); // Empty line before the array
+  #ifdef VERBOSE
+    PRINTF("\n"); // Empty line before the array
+    PRINTF("Index: \t Value: \n");
+    for (unsigned int i=0; i<length; i++)
+    PRINTF("%d \t %d \n",i,*(targetArray+i));
 
-    for(unsigned int element = 0; element < length; element++){
-      if(targetArray[element] < 10) printf("  ");
-      else if(targetArray[element] >=10 && targetArray[element] < 100) printf(" ");
-
-      printf("%d  ", targetArray[element]);
-
-      if(element != 0 && element%10 == 9 || element+1 == length) printf("\n");
-    }
-    printf("\n"); // Empty line after the array
+    PRINTF("\n"); // Empty line after the array
   #endif
 }
 

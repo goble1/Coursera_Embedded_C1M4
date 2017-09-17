@@ -22,6 +22,8 @@
 #ifndef __MEMORY_H__
 #define __MEMORY_H__
 
+#define SIZE_OF_WORD (sizeof(uint32_t))
+
 #include <stdint.h>
 
 /**

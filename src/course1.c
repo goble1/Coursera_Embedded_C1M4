@@ -35,6 +35,7 @@ int8_t test_data1() {
 
   if (! ptr )
   {
+    PRINTF("ERROR_1\n");
     return TEST_ERROR;
   }
 
@@ -48,6 +49,7 @@ int8_t test_data1() {
 
   if ( value != num )
   {
+    PRINTF("ERROR_2\n");
     return TEST_ERROR;
   }
   return TEST_NO_ERROR;
@@ -64,6 +66,7 @@ int8_t test_data2() {
 
   if (! ptr )
   {
+    PRINTF("ERROR_3\n");
     return TEST_ERROR;
   }
 
@@ -77,6 +80,7 @@ int8_t test_data2() {
 
   if ( value != num )
   {
+    PRINTF("ERROR_4\n");
     return TEST_ERROR;
   }
   return TEST_NO_ERROR;
@@ -94,6 +98,7 @@ int8_t test_memmove1() {
 
   if (! set )
   {
+    PRINTF("ERROR_5\n");
     return TEST_ERROR;
   }
 
@@ -114,6 +119,7 @@ int8_t test_memmove1() {
   {
     if (set[i + 16] != i)
     {
+      PRINTF("ERROR_6\n");
       ret = TEST_ERROR;
     }
   }
@@ -134,6 +140,7 @@ int8_t test_memmove2() {
 
   if (! set )
   {
+    PRINTF("ERROR_7\n");
     return TEST_ERROR;
   }
   ptra = &set[0];
@@ -152,6 +159,7 @@ int8_t test_memmove2() {
   {
     if (set[i + 8] != i)
     {
+      PRINTF("ERROR_8\n");
       ret = TEST_ERROR;
     }
   }
@@ -172,6 +180,7 @@ int8_t test_memmove3() {
 
   if (! set )
   {
+    PRINTF("ERROR_9\n");
     return TEST_ERROR;
   }
   ptra = &set[8];
@@ -191,6 +200,7 @@ int8_t test_memmove3() {
   {
     if (set[i] != (i + 8))
     {
+      PRINTF("ERROR_10\n");
       ret = TEST_ERROR;
     }
   }
@@ -213,6 +223,7 @@ int8_t test_memcopy() {
 
   if (! set )
   {
+    PRINTF("ERROR_11\n");
     return TEST_ERROR;
   }
   ptra = &set[0];
@@ -231,6 +242,7 @@ int8_t test_memcopy() {
   {
     if (set[i+16] != i)
     {
+      PRINTF("ERROR_12\n");
       ret = TEST_ERROR;
     }
   }
@@ -251,6 +263,7 @@ int8_t test_memset()
   set = (uint8_t*)reserve_words(MEM_SET_SIZE_W);
   if (! set )
   {
+    PRINTF("ERROR_13\n");
     return TEST_ERROR;
   }
   ptra = &set[0];
@@ -273,10 +286,12 @@ int8_t test_memset()
   {
     if (set[i] != 0xFF)
     {
+      PRINTF("ERROR_24\n");
       ret = TEST_ERROR;
     }
     if (set[16 + i] != 0)
     {
+      PRINTF("ERROR_15\n");
       ret = TEST_ERROR;
     }
   }
@@ -300,6 +315,7 @@ int8_t test_reverse()
   copy = (uint8_t*)reserve_words(MEM_SET_SIZE_W);
   if (! copy )
   {
+    PRINTF("ERROR_16\n");
     return TEST_ERROR;
   }
 
@@ -311,13 +327,16 @@ int8_t test_reverse()
 
   for (i = 0; i < MEM_SET_SIZE_B; i++)
   {
+    PRINTF("%d\n",copy[MEM_SET_SIZE_B - i - 1]);
     if (set[i] != copy[MEM_SET_SIZE_B - i - 1])
     {
+      PRINTF("ERROR_17\n");
       ret = TEST_ERROR;
     }
   }
 
   free_words( (uint32_t*)copy );
+
   return ret;
 }
 

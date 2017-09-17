@@ -46,7 +46,13 @@ CFLAGS = -Wall -Werror -g -O0 -std=c99
 
 # Compiler Flags and Defines
 TARGET = c1m4
-CPPFLAGS = -D$(PLATFORM) -D$(FUNCTION) -MMD -MP
+
+ifeq ($(DEBUG), VERBOSE)
+		CPPFLAGS = -D$(PLATFORM) -D$(FUNCTION) -D$(DEBUG) -MMD -MP
+else
+	CPPFLAGS = -D$(PLATFORM) -D$(FUNCTION) -MMD -MP
+endif
+
 ifeq ($(PLATFORM), HOST)
     CC = gcc
     LD = ld
