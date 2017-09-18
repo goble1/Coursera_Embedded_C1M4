@@ -113,4 +113,4 @@ $(TARGET).asm: build
 .PHONY: clean
 clean:
 	rm -f *.o *.out *.map *.asm *.i *.d
-	rm -f src/*.o *.out *.map *.asm *.i *.d
+	rm -f src/*.o src/*.out src/*.map src/*.asm src/*.i src/*.d
