@@ -9,7 +9,7 @@ Krystian Jagoda <br />
  `make [TARGET] [PLATFORM-OVERRIDES] [FUNCTION] [DEBUG - Optional]`
 
  Example: <br />
- `$ make build PLATFORM=HOST FUNCTION=COURSE1 DEBUG=DEVERBOSE`
+ `$ make build PLATFORM=HOST FUNCTION=COURSE1 DEBUG=VERBOSE`
 
 ----
 
@@ -39,4 +39,4 @@ Krystian Jagoda <br />
   *	FUNCTION=TEST_REVERSE
 
  * DEBUG:
-   * DEBUG=DVERBOSE - Print extra information on the memory data
+   * DEBUG=VERBOSE - Print extra information on the memory data

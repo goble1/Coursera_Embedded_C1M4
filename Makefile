@@ -21,7 +21,7 @@
 #* @date 15 September 2017
 #
 # Use: make [TARGET] [PLATFORM-OVERRIDES] [FUNCTION] [DEBUG - Optional]
-# Example: $ make build PLATFORM=HOST FUNCTION=COURSE1 DEBUG=DEVERBOSE
+# Example: $ make build PLATFORM=HOST FUNCTION=COURSE1 DEBUG=VERBOSE
 #
 # Build Targets:
 #      <FILE>.i - Generate <FILE>.i preprocessed output
@@ -47,7 +47,7 @@
 # 			FUNCTION=TEST_REVERSE
 #
 # DEBUG:
-#       DEBUG=DVERBOSE - Print extra information on the memory data
+#       DEBUG=VERBOSE - Print extra information on the memory data
 #
 #------------------------------------------------------------------------------
 
