@@ -25,6 +25,7 @@
 #define SIZE_OF_WORD (sizeof(uint32_t))
 
 #include <stdint.h>
+#include <stddef.h>
 
 /**
  * @brief Moves the bytes from source to destination location

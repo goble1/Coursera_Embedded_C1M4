@@ -10,13 +10,9 @@
  *****************************************************************************/
 /**
  * @file main.c
- * @brief Main entry point to the Finall Assessment
+ * @brief Main entry point to the Final Assessment
  *
- * This file contains the main code for the C1M2 assesment. Students
- * are not to change any of the code, they are instead supposed to compile
- * these files with their makefile.
- *
- * Coursera - Embedded Software - Finall Assignment
+ * Coursera - Embedded Software - Final Assignment
  *
  * @author Krystian Jagoda
  * @date 19/08/2017
@@ -24,11 +20,6 @@
  */
 
 #include "course1.h"
-
-
-#define MAX_LENGTH (10)
-char buffer[MAX_LENGTH];
-
 
 int main(void) {
 
@@ -40,49 +31,49 @@ int main(void) {
 
 
   /******************************************************************************
-   Platform - TEST_DATA1
+   FUNCTION = TEST_DATA1
   ******************************************************************************/
   #elif defined (TEST_DATA1)
     test_data1();
 
   /******************************************************************************
-   Platform - TEST_DATA2
+   FUNCTION = TEST_DATA2
   ******************************************************************************/
   #elif defined (TEST_DATA2)
     test_data2();
 
   /******************************************************************************
-   Platform - TEST_MEMMOVE1
+   FUNCTION = TEST_MEMMOVE1
   ******************************************************************************/
   #elif defined (TEST_MEMMOVE1)
     test_memmove1();
 
   /******************************************************************************
-   Platform - TEST_MEMMOVE2
+   FUNCTION = TEST_MEMMOVE2
   ******************************************************************************/
   #elif defined (TEST_MEMMOVE2)
     test_memmove2();
 
   /******************************************************************************
-   Platform - TEST_MEMMOVE3
+   FUNCTION = TEST_MEMMOVE3
   ******************************************************************************/
   #elif defined (TEST_MEMMOVE3)
     test_memmove3();
 
   /******************************************************************************
-   Platform - TEST_MEMCOPY
+   FUNCTION = TEST_MEMCOPY
   ******************************************************************************/
   #elif defined (TEST_MEMCOPY)
     test_memcopy();
 
   /******************************************************************************
-   Platform - TEST_MEMSET
+   FUNCTION = TEST_MEMSET
   ******************************************************************************/
   #elif defined (TEST_MEMSET)
     test_memset();
 
   /******************************************************************************
-   Platform - TEST_REVERSE
+   FUNCTION = TEST_REVERSE
   ******************************************************************************/
   #elif defined (TEST_REVERSE)
     test_reverse();
@@ -93,7 +84,6 @@ int main(void) {
   #else
   #error "Function provided is not supported in this Build System"
   #endif
-
 
   return 0;
 }

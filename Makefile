@@ -20,7 +20,8 @@
 #* @author Krystian Jagoda
 #* @date 15 September 2017
 #
-# Use: make [TARGET] [PLATFORM-OVERRIDES]
+# Use: make [TARGET] [PLATFORM-OVERRIDES] [FUNCTION] [DEBUG - Optional]
+# Example: $ make build PLATFORM=HOST FUNCTION=COURSE1 DEBUG=DEVERBOSE
 #
 # Build Targets:
 #      <FILE>.i - Generate <FILE>.i preprocessed output
@@ -30,9 +31,24 @@
 #      build - Builds and links all source files
 #      clean - Removes all generated files
 #
-#Platform Overrides:
+# PLATFORM-OVERRIDES:
 #       PLATFORM=HOST - Compile for HOST using gcc
 #       PLATFORM=MSP432 - Compile for MSP432 using arm-none-eabi-gcc
+#
+# FUNCTION:
+# 			FUNCTION=COURSE1
+# 			FUNCTION=TEST_DATA1
+# 			FUNCTION=TEST_DATA2
+# 			FUNCTION=TEST_MEMMOVE1
+# 			FUNCTION=TEST_MEMMOVE2
+# 			FUNCTION=TEST_MEMMOVE3
+# 			FUNCTION=TEST_MEMCOPY
+# 			FUNCTION=TEST_MEMSET
+# 			FUNCTION=TEST_REVERSE
+#
+# DEBUG:
+#       DEBUG=DVERBOSE - Print extra information on the memory data
+#
 #------------------------------------------------------------------------------
 
 include sources.mk

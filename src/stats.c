@@ -10,16 +10,14 @@
  *****************************************************************************/
 /**
  * @file stats.c
- * @brief Week 1 Application Assignment
+ * @brief Some stats functions
  *
- * Coursera - Embedded Software - Finall Assignment
+ * Coursera - Embedded Software - Final Assignment
  *
  * @author Krystian Jagoda
  * @date 19/08/2017
  *
  */
-
-
 
 #include <stdio.h>
 #include "stats.h"
